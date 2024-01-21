@@ -81,13 +81,13 @@ class CrowIPModuleOutput(CrowIPModuleDevice, SwitchEntity):
 
     async def async_turn_on(self, **kwargs):
         """Turn on the output."""
-        self.hass.data[DATA_CRW].command_output(str(self._output_number))
+        self.hass.data[DATA_CRW].command_on_output(str(self._output_number))
         self._state = STATE_ON
         self.async_schedule_update_ha_state()
 
     async def async_turn_off(self, **kwargs):
         """Turn off the output."""
-        self.hass.data[DATA_CRW].command_output(str(self._output_number))
+        self.hass.data[DATA_CRW].command_off_output(str(self._output_number))
         self._state = STATE_OFF
         self.async_schedule_update_ha_state()
 
